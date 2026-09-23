@@ -8,7 +8,7 @@ export function Work() {
       <div className="wrap">
         <div className="head">
           <h2 data-split><Words>Selected work</Words></h2>
-          <span className="label">02 — Deployed and in use</span>
+          <span className="label">03 — Deployed and in use</span>
         </div>
         <div className="work">
           {WORK.map((w, i) => (

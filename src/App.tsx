@@ -19,8 +19,8 @@ export default function App() {
       <Strip />
       <Marquee />
       <Approach />
-      <Work />
       <Experience />
+      <Work />
       <Principles />
       <About />
       <Contact />

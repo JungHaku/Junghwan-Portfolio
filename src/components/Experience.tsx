@@ -8,7 +8,7 @@ export function Experience() {
       <div className="wrap">
         <div className="head">
           <h2 data-split><Words>Experience</Words></h2>
-          <span className="label">03 — Where I've shipped</span>
+          <span className="label">02 — Where I've shipped</span>
         </div>
         <div className="work">
           {EXPERIENCE.map((e, i) => (
