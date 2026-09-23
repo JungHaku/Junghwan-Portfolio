@@ -75,6 +75,7 @@ h2 { font-family: var(--tight); font-weight: 600; font-size: clamp(34px, 4.2vw, 
 .item .meta { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); text-align: right; line-height: 1.9; }
 .item:hover h4 { color: var(--blue); }
 .item:hover .n { color: var(--blue); }
+.item h4 .orglogo { display: block; width: auto; margin-bottom: 14px; }
 .item h4 .role { display: block; font-family: var(--sans); font-weight: 400; font-size: 14px; letter-spacing: 0; color: var(--ink-3); margin-top: 8px; }
 
 /* PRINCIPLES */

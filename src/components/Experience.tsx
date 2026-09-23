@@ -14,7 +14,11 @@ export function Experience() {
           {EXPERIENCE.map((e, i) => (
             <div key={e.n} className="item" data-reveal style={{ '--i': i } as CSSProperties}>
               <span className="n">{e.n}</span>
-              <h4>{e.org}<span className="role">{e.role}</span></h4>
+              <h4>
+                {e.logo && <img className="orglogo" src={e.logo} alt="" style={{ height: e.logoH ?? 20 }} />}
+                {e.org}
+                <span className="role">{e.role}</span>
+              </h4>
               <p>{e.desc}</p>
               <span className="meta">{e.dates[0]}<br />{e.dates[1]}</span>
             </div>
