@@ -15,10 +15,6 @@ export function Hero() {
             From prototype<br />to production.<br />Then <em>own the outcome.</em>
           </Words>
         </h1>
-        <p>
-          I build agentic AI systems and take them the last mile: into the customer's data, their
-          infrastructure and their daily workflow, measured on the numbers they already track.
-        </p>
         <div className="cta">
           <a className="btn" href="#work">Projects</a>
           <a className="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
