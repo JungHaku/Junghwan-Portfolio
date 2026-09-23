@@ -17,7 +17,7 @@ export const STRIP = [
 
 export const MARQUEE = [
   'Agents', 'Evals', 'MCP', 'Fine-tuning', 'LoRA / QLoRA', 'PyTorch', 'Rust',
-  'Voice AI', 'n8n', 'Cloud Run', 'Vercel', 'Forward deployed', 'EN · KO · JA',
+  'Voice AI', 'Cloud Run', 'Vercel', 'Forward deployed', 'EN · KO · JA',
 ]
 
 // TODO: Walk Safe Alameda and Karp LLM descriptions are placeholders pending real copy.
@@ -49,7 +49,7 @@ export const FACTS = [
   { label: 'Based in', value: 'Berkeley, CA' },
   { label: 'Graduating', value: 'December 2026' },
   { label: 'Languages', value: 'English · 한국어 · 日本語 (N2)' },
-  { label: 'Stack', value: 'Python, TypeScript, Rust, PyTorch, MCP, n8n, Cloud Run' },
+  { label: 'Stack', value: 'Python, TypeScript, Rust, PyTorch, MCP, Cloud Run' },
   { label: 'Achievement', value: '3rd place, SVCC CTF Hackathon 2025' },
   { label: 'Off hours', value: 'Shogi, MMA' },
 ]

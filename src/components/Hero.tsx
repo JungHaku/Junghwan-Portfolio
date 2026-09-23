@@ -16,6 +16,7 @@ export function Hero() {
           </Words>
         </h1>
         <div className="cta">
+          <a className="btn ghost" href="#experience">Experience</a>
           <a className="btn" href="#work">Projects</a>
           <a className="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
