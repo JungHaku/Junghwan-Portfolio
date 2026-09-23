@@ -6,7 +6,7 @@ export function Approach() {
     <section className="light" id="approach">
       <div className="wrap">
         <div className="head">
-          <h2 data-split><Words>Code is free, taste is rare.</Words></h2>
+          <h2 data-split><Words>Code is free, <em>taste</em> is rare.</Words></h2>
           <span className="label">01 — Approach</span>
         </div>
         <div className="cols">

@@ -35,6 +35,7 @@ nav li a:hover { opacity: 1; }
 .hero .wrap { position: relative; z-index: 2; width: 100%; }
 h1 { font-family: var(--tight); font-weight: 700; font-size: clamp(44px, 6.4vw, 92px); line-height: .96; letter-spacing: -.035em; text-transform: uppercase; max-width: 1000px; }
 h1 em { font-style: normal; color: var(--blue-text); }
+.light h2 em { font-style: normal; color: var(--blue); }
 .hero .cta { display: flex; gap: 32px; align-items: center; margin-top: 48px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; height: 52px; padding: 0 28px; font-size: 14px; font-weight: 500; background: var(--white); color: var(--black); transition: background .2s, color .2s; }
 .btn:hover { background: var(--blue-text); }
