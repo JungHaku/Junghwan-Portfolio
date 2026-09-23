@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junghwan Baik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #08090B;
+    --white: #FFFFFF;
+    --blue: #0B2D6B;
+    --blue-text: #9DB8F0;   /* the only tint: blue that reads on black */
+    --ink-2: #A3A7AE;       /* secondary on black */
+    --ink-3: #5F636B;       /* secondary on white */
+    --rule-d: rgba(255,255,255,.14);
+    --rule-l: #E6E7EA;
+    --sans: "Inter", -apple-system, "Helvetica Neue", system-ui, sans-serif;
+    --tight: "Inter Tight", -apple-system, "Helvetica Neue", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: var(--sans); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+  .label { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+
+  /* NAV */
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 20; mix-blend-mode: difference; color: #fff; }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  nav .name { font-family: var(--tight); font-weight: 600; font-size: 15px; letter-spacing: -.01em; }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav li a { font-size: 13px; opacity: .7; transition: opacity .2s; }
+  nav li a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: flex-end; padding-top: 140px; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,9,11,.2) 0%, rgba(8,9,11,0) 40%, rgba(8,9,11,.85) 100%); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 2; width: 100%; padding-bottom: 88px; }
+  .hero .label { color: var(--ink-2); margin-bottom: 40px; }
+  h1 { font-family: var(--tight); font-weight: 700; font-size: clamp(44px, 6.4vw, 92px); line-height: .96; letter-spacing: -.035em; text-transform: uppercase; max-width: 1000px; }
+  h1 em { font-style: normal; color: var(--blue-text); }
+  .hero p { max-width: 560px; margin-top: 36px; font-size: 18px; line-height: 1.6; color: var(--ink-2); }
+  .hero .cta { display: flex; gap: 32px; align-items: center; margin-top: 48px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; height: 52px; padding: 0 28px; font-size: 14px; font-weight: 500; background: var(--white); color: var(--black); transition: background .2s, color .2s; }
+  .btn:hover { background: var(--blue-text); }
+  .link { font-size: 14px; border-bottom: 1px solid var(--rule-d); padding-bottom: 3px; transition: border-color .2s; }
+  .link:hover { border-color: var(--white); }
+
+  /* STRIP */
+  .strip { border-top: 1px solid var(--rule-d); border-bottom: 1px solid var(--rule-d); }
+  .strip .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .strip .cell { padding: 28px 32px 28px 0; }
+  .strip .cell + .cell { padding-left: 32px; border-left: 1px solid var(--rule-d); }
+  .strip .label { color: var(--ink-2); display: block; margin-bottom: 10px; }
+  .strip .val { font-size: 16px; font-weight: 500; }
+
+  /* GENERIC SECTION */
+  section { padding: 128px 0; }
+  .light { background: var(--white); color: var(--black); }
+  .blue-bg { background: var(--blue); color: var(--white); }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid currentColor; margin-bottom: 64px; }
+  .light .head { border-color: var(--black); }
+  h2 { font-family: var(--tight); font-weight: 600; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -.03em; max-width: 760px; }
+  .head .label { flex-shrink: 0; opacity: .6; }
+
+  /* COLUMNS */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .col { padding-right: 64px; }
+  .col + .col { padding-left: 64px; padding-right: 0; border-left: 1px solid var(--rule-l); }
+  .col .label { color: var(--blue); display: block; margin-bottom: 28px; }
+  .col h3 { font-family: var(--tight); font-weight: 600; font-size: 30px; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 24px; }
+  .col p { color: var(--ink-3); font-size: 17px; line-height: 1.7; margin-bottom: 18px; }
+
+  /* WORK */
+  .work { border-top: 1px solid var(--rule-l); }
+  .item { display: grid; grid-template-columns: 96px 1.1fr 1.6fr 200px; gap: 32px; align-items: baseline; padding: 40px 0; border-bottom: 1px solid var(--rule-l); transition: color .2s; }
+  .item .n { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+  .item h4 { font-family: var(--tight); font-weight: 600; font-size: 30px; letter-spacing: -.025em; line-height: 1.1; transition: color .2s; }
+  .item p { font-size: 16px; line-height: 1.6; color: var(--ink-3); }
+  .item .meta { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); text-align: right; line-height: 1.9; }
+  .item:hover h4 { color: var(--blue); }
+  .item:hover .n { color: var(--blue); }
+
+  /* PRINCIPLES */
+  .blue-bg .head { border-color: rgba(255,255,255,.4); }
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .pr { padding: 8px 48px 0 0; }
+  .pr + .pr { padding-left: 48px; border-left: 1px solid rgba(255,255,255,.25); }
+  .pr .n { font-family: var(--mono); font-size: 12px; opacity: .6; display: block; margin-bottom: 56px; }
+  .pr h3 { font-family: var(--tight); font-weight: 600; font-size: 26px; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 16px; }
+  .pr p { font-size: 15.5px; line-height: 1.7; opacity: .8; }
+
+  /* ABOUT */
+  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 96px; align-items: start; }
+  .about .big { font-family: var(--tight); font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.3; letter-spacing: -.02em; }
+  .about .big span { color: var(--ink-2); }
+  .facts { border-top: 1px solid var(--rule-d); }
+  .facts div { display: flex; justify-content: space-between; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--rule-d); font-size: 15px; }
+  .facts .label { color: var(--ink-2); padding-top: 3px; }
+
+  /* CONTACT */
+  .contact { padding: 0 0 120px; }
+  .contact .wrap { border-top: 1px solid var(--rule-d); padding-top: 96px; }
+  .contact .label { color: var(--ink-2); display: block; margin-bottom: 40px; }
+  .contact a.mail { display: block; font-family: var(--tight); font-weight: 600; font-size: clamp(26px, 5.2vw, 76px); letter-spacing: -.04em; line-height: 1.05; overflow-wrap: anywhere; transition: color .2s; }
+  .contact a.mail:hover { color: var(--blue-text); }
+  .contact .sub { display: flex; gap: 40px; margin-top: 48px; flex-wrap: wrap; }
+  .contact .sub a { font-size: 14px; color: var(--ink-2); border-bottom: 1px solid transparent; }
+  .contact .sub a:hover { color: var(--white); border-color: var(--white); }
+
+  footer .wrap { display: flex; justify-content: space-between; height: 72px; align-items: center; border-top: 1px solid var(--rule-d); color: var(--ink-2); }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 24px; }
+    nav ul { display: none; }
+    .hero { min-height: 560px; }
+    .hero .wrap { padding-bottom: 56px; }
+    .strip .wrap { grid-template-columns: 1fr 1fr; }
+    .strip .cell:nth-child(3) { padding-left: 0; border-left: 0; }
+    .strip .cell:nth-child(n+3) { border-top: 1px solid var(--rule-d); }
+    section { padding: 88px 0; }
+    .head { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 40px; }
+    .cols, .about, .principles { grid-template-columns: 1fr; }
+    .col { padding-right: 0; }
+    .col + .col { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule-l); margin-top: 48px; padding-top: 48px; }
+    .item { grid-template-columns: 48px 1fr; gap: 12px 16px; padding: 28px 0; }
+    .item p, .item .meta { grid-column: 2; text-align: left; }
+    .pr { padding-right: 0; }
+    .pr + .pr { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.25); margin-top: 40px; padding-top: 40px; }
+    .pr .n { margin-bottom: 24px; }
+    .about { gap: 48px; }
+  }
+
+  /* ============ SCROLL ANIMATIONS ============
+     Everything below is driven by two things:
+     1. IntersectionObserver adds .in to [data-split], [data-reveal], .head, .blue-bg
+     2. a rAF scroll loop updates --p (progress) on the hero, [data-fill] words, and #progress
+     Port note for React: keep these classes, run the observer in a useEffect. */
+
+  #progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; background: var(--white); transform-origin: left; transform: scaleX(0); z-index: 30; mix-blend-mode: difference; }
+
+  /* word-by-word mask reveal */
+  [data-split] .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+  [data-split] .wi { display: inline-block; transform: translateY(110%) rotate(3deg); transform-origin: left bottom; transition: transform 1s cubic-bezier(.2,.75,.2,1); transition-delay: calc(var(--i) * 55ms); }
+  [data-split].in .wi { transform: none; }
+
+  /* fade-up with per-child stagger */
+  [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.75,.2,1); transition-delay: calc(var(--i, 0) * 90ms); }
+  [data-reveal].in { opacity: 1; transform: none; }
+
+  /* section head rule draws itself */
+  .head { position: relative; border-bottom: 0 !important; }
+  .head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 1.3s cubic-bezier(.77,0,.18,1) .2s; }
+  .light .head::after { background: var(--black); }
+  .blue-bg .head::after { background: rgba(255,255,255,.45); }
+  .head.in::after { transform: scaleX(1); }
+  .head .label { opacity: 0; transform: translateX(16px); transition: all .8s ease .6s; }
+  .head.in .label { opacity: .6; transform: none; }
+
+  /* column dividers grow down */
+  .col + .col, .pr + .pr { border-left-color: transparent !important; position: relative; }
+  .col + .col::before, .pr + .pr::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 0; width: 1px; background: currentColor; opacity: .18; transform: scaleY(0); transform-origin: top; transition: transform 1.2s cubic-bezier(.77,0,.18,1) .3s; }
+  .col + .col.in::before, .pr + .pr.in::before { transform: scaleY(1); }
+
+  /* work rows: wipe-in underline + hover slide */
+  .item { position: relative; border-bottom-color: transparent; }
+  .item::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--rule-l); transform: scaleX(0); transform-origin: left; transition: transform 1s cubic-bezier(.77,0,.18,1); transition-delay: calc(var(--i, 0) * 90ms + .2s); }
+  .item.in::after { transform: scaleX(1); }
+  .item::before { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--blue); transform: scaleX(0); transform-origin: right; transition: transform .5s cubic-bezier(.77,0,.18,1); z-index: 1; }
+  .item:hover::before { transform: scaleX(1); transform-origin: left; }
+  .item h4 { transition: transform .4s cubic-bezier(.2,.75,.2,1), color .2s; }
+  .item:hover h4 { transform: translateX(10px); }
+  .item .meta { transition: transform .4s cubic-bezier(.2,.75,.2,1), color .2s; }
+  .item:hover .meta { transform: translateX(-6px); color: var(--blue); }
+
+  /* blue band wipes open */
+  .blue-bg { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1); }
+  .blue-bg.in { clip-path: inset(0 0 0 0); }
+
+  /* hero parallax (values set from JS via --p = scrollY / hero height) */
+  .hero .wrap { transform: translateY(calc(var(--p, 0) * 160px)); opacity: calc(1 - var(--p, 0) * 1.4); will-change: transform, opacity; }
+  .hero canvas { transform: translateY(calc(var(--p, 0) * 80px)) scale(calc(1 + var(--p, 0) * .08)); will-change: transform; }
+
+  /* scroll-driven text fill: each word goes dim -> bright as you scroll */
+  [data-fill] .w { color: var(--white); opacity: .22; transition: opacity .25s linear; }
+  [data-fill] .w.lit { opacity: 1; }
+
+  /* contact email: letters drop in */
+  [data-chars] .c { display: inline-block; transform: translateY(60%); opacity: 0; transition: transform .8s cubic-bezier(.2,.75,.2,1), opacity .5s; transition-delay: calc(var(--i) * 22ms); }
+  [data-chars].in .c { transform: none; opacity: 1; }
+
+  /* marquee */
+  .marquee { overflow: hidden; border-bottom: 1px solid var(--rule-d); padding: 18px 0; white-space: nowrap; }
+  .marquee .track { display: inline-flex; gap: 48px; padding-right: 48px; animation: marquee 28s linear infinite; }
+  .marquee .track span { font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); }
+  .marquee .track span::before { content: "\2014\00a0\00a0"; opacity: .4; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-split] .wi, [data-reveal], .head::after, .head .label, .col + .col::before, .pr + .pr::before, .item::after, [data-chars] .c { transition: none !important; transform: none !important; opacity: 1 !important; }
+    .blue-bg { clip-path: none; transition: none; }
+    .hero .wrap, .hero canvas { transform: none !important; opacity: 1 !important; }
+    [data-fill] .w { opacity: 1; }
+    .marquee .track { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#">Junghwan Baik</a>
+    <ul>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="field"></canvas>
+  <div class="wrap">
+    <div class="label">Forward Deployed Engineer — Berkeley, CA</div>
+    <h1 data-split>From prototype<br>to production.<br>Then <em>own the outcome.</em></h1>
+    <p>I build agentic AI systems and take them the last mile: into the customer's data, their infrastructure and their daily workflow, measured on the numbers they already track.</p>
+    <div class="cta">
+      <a class="btn" href="#work">Selected work</a>
+      <a class="link" href="mailto:junghwanbaik@berkeley.edu">junghwanbaik@berkeley.edu</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="cell" data-reveal><span class="label">Education</span><span class="val">UC Berkeley, Cognitive Science</span></div>
+    <div class="cell" data-reveal><span class="label">Available</span><span class="val">December 2026</span></div>
+    <div class="cell" data-reveal><span class="label">Languages</span><span class="val">English, Korean, Japanese</span></div>
+    <div class="cell" data-reveal><span class="label">Focus</span><span class="val">Agents, evals, deployment</span></div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Agents</span><span>Evals</span><span>Ontology</span><span>MCP</span><span>Cloud Run</span><span>n8n</span><span>Fine-tuning</span><span>Voice AI</span><span>Forward deployed</span><span>EN · KO · JA</span>
+    <span>Agents</span><span>Evals</span><span>Ontology</span><span>MCP</span><span>Cloud Run</span><span>n8n</span><span>Fine-tuning</span><span>Voice AI</span><span>Forward deployed</span><span>EN · KO · JA</span>
+  </div>
+</div>
+
+<section class="light" id="approach">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-split>Intelligence is cheap. Deployment is the hard part.</h2>
+      <span class="label">01 — Approach</span>
+    </div>
+    <div class="cols">
+      <div class="col" data-reveal>
+        <span class="label">The problem</span>
+        <h3 data-split>Most AI projects die between the demo and the workflow.</h3>
+        <p>The model works in a notebook. Then it meets messy data, edge cases nobody wrote down, and users who were never asked what they need. The token bill keeps climbing while the metrics the business actually tracks stay flat.</p>
+      </div>
+      <div class="col" data-reveal>
+        <span class="label">How I work</span>
+        <h3 data-split>Start from the outcome. Model the domain. Ship inside their stack.</h3>
+        <p>I begin with the number the customer already cares about, model their world as objects and actions, then build the agent, the evals and the infrastructure around it. It runs in their environment, gets measured against that number, and keeps improving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-split>Selected work</h2>
+      <span class="label">02 — Deployed and in use</span>
+    </div>
+    <div class="work">
+      <a class="item" href="#" data-reveal><span class="n">01</span><h4>InsuranceMaxx</h4><p>An agent that drafts health insurance appeals, backed by an evaluation harness that scores every draft before it ships.</p><span class="meta">Agents<br>Evals</span></a>
+      <a class="item" href="#" data-reveal><span class="n">02</span><h4>Oakland Worklist</h4><p>An ontology-driven tool that turns city data into ranked, actionable worklists for operations staff.</p><span class="meta">Ontology<br>Data</span></a>
+      <a class="item" href="#" data-reveal><span class="n">03</span><h4>Alice Calls</h4><p>An AI voice receptionist that answers and routes inbound calls for roofing contractors.</p><span class="meta">Voice AI<br>Go-to-market</span></a>
+      <a class="item" href="#" data-reveal><span class="n">04</span><h4>gumiHelp</h4><p>A multimodal AI companion for iOS, live on the App Store.</p><span class="meta">iOS<br>Multimodal</span></a>
+      <a class="item" href="#" data-reveal><span class="n">05</span><h4>Karp LLM</h4><p>A custom fine-tuned language model deployed as a public web application.</p><span class="meta">Fine-tuning<br>Web</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="blue-bg">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-split>Three rules I build by.</h2>
+      <span class="label">03 — Principles</span>
+    </div>
+    <div class="principles">
+      <div class="pr" data-reveal><span class="n">I</span><h3 data-split>The metric comes first.</h3><p>If we can't name the number that should move, we're not ready to write code.</p></div>
+      <div class="pr" data-reveal><span class="n">II</span><h3 data-split>Sit with the user.</h3><p>The edge cases live in someone's head, not in the spec. I go find them.</p></div>
+      <div class="pr" data-reveal><span class="n">III</span><h3 data-split>Own it end to end.</h3><p>Discovery, model, infrastructure, rollout. One person accountable for the outcome.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-split>About</h2>
+      <span class="label">04</span>
+    </div>
+    <div class="about">
+      <p class="big" data-fill>Cognitive science student at UC Berkeley. Before engineering, I sold: cold calls, cold email, consulting. <span>That taught me the hardest part of software is the last mile to the customer. It's the part I want to own.</span></p>
+      <div class="facts" data-reveal>
+        <div><span class="label">Based in</span><span>Berkeley, CA</span></div>
+        <div><span class="label">Graduating</span><span>December 2026</span></div>
+        <div><span class="label">Languages</span><span>English · 한국어 · 日本語 (N2)</span></div>
+        <div><span class="label">Stack</span><span>MCP, multi-agent systems, n8n, Cloud Run</span></div>
+        <div><span class="label">Off hours</span><span>Shogi, MMA</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="label">05 — Contact</span>
+    <a class="mail" href="mailto:junghwanbaik@berkeley.edu" data-chars>junghwanbaik@berkeley.edu</a>
+    <div class="sub">
+      <a href="https://www.linkedin.com/in/junghwan-baik">LinkedIn</a>
+      <a href="https://github.com/JungHaku">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span class="label">© 2026 Junghwan Baik</span><span class="label">Berkeley, CA</span></div></footer>
+
+<script>
+/* ---------- text splitting ---------- */
+function splitWords(el, cls) {
+  // walk text nodes, wrap each word; keeps <br> and <em>
+  const walk = node => {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(tok => {
+          if (!tok) return;
+          if (/^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(' ')); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const wi = document.createElement('span'); wi.className = 'wi'; wi.textContent = tok;
+          w.appendChild(wi); frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+    });
+  };
+  walk(el);
+  el.querySelectorAll('.w').forEach((w, i) => w.style.setProperty('--i', i));
+}
+document.querySelectorAll('[data-split], [data-fill]').forEach(el => splitWords(el));
+document.querySelectorAll('[data-chars]').forEach(el => {
+  const t = el.textContent; el.textContent = '';
+  [...t].forEach((ch, i) => { const c = document.createElement('span'); c.className = 'c'; c.style.setProperty('--i', i); c.textContent = ch; el.appendChild(c); });
+});
+
+/* ---------- stagger index for reveal groups ---------- */
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  const sibs = [...el.parentElement.querySelectorAll(':scope > [data-reveal]')];
+  el.style.setProperty('--i', sibs.indexOf(el));
+});
+
+/* ---------- intersection observer ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('[data-split], [data-reveal], [data-chars], .head, .blue-bg').forEach(el => io.observe(el));
+// hero plays immediately
+requestAnimationFrame(() => document.querySelectorAll('.hero [data-split]').forEach(el => el.classList.add('in')));
+
+/* ---------- scroll loop: progress bar, hero parallax, text fill ---------- */
+const hero = document.querySelector('.hero');
+const bar = document.getElementById('progress');
+const fills = [...document.querySelectorAll('[data-fill]')].map(el => ({ el, words: [...el.querySelectorAll('.w')] }));
+let ticking = false;
+function onScroll() {
+  if (ticking) return; ticking = true;
+  requestAnimationFrame(() => {
+    const y = scrollY, vh = innerHeight, doc = document.documentElement.scrollHeight - vh;
+    bar.style.transform = `scaleX(${doc > 0 ? y / doc : 0})`;
+    hero.style.setProperty('--p', Math.min(1, y / hero.offsetHeight).toFixed(3));
+    fills.forEach(({ el, words }) => {
+      const r = el.getBoundingClientRect();
+      const prog = (vh * 0.85 - r.top) / (r.height + vh * 0.3);   // 0 when top hits 85% of viewport, 1 when fully passed
+      const lit = Math.floor(Math.max(0, Math.min(1, prog)) * words.length);
+      words.forEach((w, i) => w.classList.toggle('lit', i < lit));
+    });
+    ticking = false;
+  });
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+/* ---------- hero canvas: flowing contour field ---------- */
+(() => {
+  const c = document.getElementById('field'), ctx = c.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w, h, dpr, t = 0, mx = .5, my = .5, tx = .5, ty = .5;
+  function size() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    w = c.clientWidth; h = c.clientHeight;
+    c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  addEventListener('resize', size); size();
+  addEventListener('pointermove', e => { tx = e.clientX / w; ty = e.clientY / h; });
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    mx += (tx - mx) * .04; my += (ty - my) * .04;
+    const rows = 38, step = 6;
+    for (let i = 0; i < rows; i++) {
+      const f = i / (rows - 1);
+      const base = h * (0.18 + f * 0.78);
+      const amp = 34 + 110 * Math.sin(f * Math.PI);
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += step) {
+        const u = x / w, dx = u - mx, dy = f - my;
+        const bulge = Math.exp(-(dx * dx * 9 + dy * dy * 6)) * 60;
+        const y = base
+          + Math.sin(u * 5.2 + t * .55 + i * .22) * amp * .5
+          + Math.sin(u * 11.7 - t * .35 + i * .5) * amp * .22
+          + Math.sin(u * 2.1 + t * .2) * amp * .35
+          - bulge;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      const a = .07 + .3 * Math.pow(Math.sin(f * Math.PI), 1.5);
+      ctx.strokeStyle = i % 5 === 0 ? `rgba(157,184,240,${a * .9})` : `rgba(255,255,255,${a})`;
+      ctx.lineWidth = 1; ctx.stroke();
+    }
+    if (!reduce) { t += .008; requestAnimationFrame(draw); }
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
