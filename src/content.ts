@@ -17,7 +17,7 @@ export const STRIP = [
 
 export const MARQUEE = [
   'Agents', 'Evals', 'MCP', 'Fine-tuning', 'LoRA / QLoRA', 'PyTorch', 'Rust',
-  'Voice AI', 'Cloud Run', 'Vercel', 'Forward deployed', 'EN · KO · JA',
+  'Voice AI', 'Cloud Run', 'Vercel', 'Sales development', 'Consulting', 'Pipelining', 'EN · KO · JA',
 ]
 
 // TODO: Walk Safe Alameda and Karp LLM descriptions are placeholders pending real copy.
