@@ -12,20 +12,20 @@ export function Approach() {
         <div className="cols">
           <div className="col" data-reveal style={{ '--i': 0 } as CSSProperties}>
             <span className="label">The problem</span>
-            <h3 data-split><Words>Most AI projects die between the demo and the workflow.</Words></h3>
+            <h3 data-split><Words>Maximizing token usage doesn't create value. It migrates your IP to a third party.</Words></h3>
             <p>
-              The model works in a notebook. Then it meets messy data, edge cases nobody wrote down,
-              and users who were never asked what they need. The token bill keeps climbing while the
-              metrics the business actually tracks stay flat.
+              The spend climbs, the vendor learns your domain, and the numbers your business
+              actually tracks stay flat. You end up renting capability you could have owned.
             </p>
           </div>
           <div className="col" data-reveal style={{ '--i': 1 } as CSSProperties}>
-            <span className="label">How I work</span>
-            <h3 data-split><Words>Start from the outcome. Model the domain. Ship inside their stack.</Words></h3>
+            <span className="label">How I solve</span>
+            <h3 data-split><Words>Find the gaps. Point the models at your data. Keep the moat.</Words></h3>
             <p>
-              I begin with the number the customer already cares about, model their world as objects
-              and actions, then build the agent, the evals and the infrastructure around it. It runs
-              in their environment, gets measured against that number, and keeps improving.
+              LLMs and ML models are a powerful raw resource, but the value is in where they meet
+              your business. I find the gaps where they can be applied to your own data, inside
+              your own stack. Your data is your moat. Your users are your moat. Not the code, not
+              the model.
             </p>
           </div>
         </div>
