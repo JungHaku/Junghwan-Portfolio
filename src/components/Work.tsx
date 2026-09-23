@@ -4,7 +4,7 @@ import { Words } from './SplitText'
 
 export function Work() {
   return (
-    <section className="light" id="work" style={{ paddingTop: 0 }}>
+    <section className="light" id="projects" style={{ paddingTop: 0 }}>
       <div className="wrap">
         <div className="head">
           <h2 data-split><Words>Projects</Words></h2>
