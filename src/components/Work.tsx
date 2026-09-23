@@ -7,7 +7,7 @@ export function Work() {
     <section className="light" id="work" style={{ paddingTop: 0 }}>
       <div className="wrap">
         <div className="head">
-          <h2 data-split><Words>Selected work</Words></h2>
+          <h2 data-split><Words>Projects</Words></h2>
           <span className="label">03 — Deployed and in use</span>
         </div>
         <div className="work">

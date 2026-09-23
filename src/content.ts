@@ -3,7 +3,7 @@ export const EMAIL = 'junghwanbaik@berkeley.edu'
 export const NAV_LINKS = [
   { href: '#approach', label: 'Approach' },
   { href: '#experience', label: 'Experience' },
-  { href: '#work', label: 'Work' },
+  { href: '#work', label: 'Projects' },
   { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ]
