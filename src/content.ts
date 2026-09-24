@@ -12,22 +12,22 @@ export const STRIP = [
   { label: 'Education', value: 'UC Berkeley, Cognitive Science' },
   { label: 'Available', value: 'December 2026' },
   { label: 'Languages', value: 'English, Korean, Japanese' },
-  { label: 'Focus', value: 'Agents, fine-tuning, deployment' },
+  { label: 'Focus', value: 'Software for clients, built with clients' },
 ]
 
 export const MARQUEE = [
-  'Agents', 'Evals', 'MCP', 'Fine-tuning', 'LoRA / QLoRA', 'PyTorch', 'Rust',
+  'Agent orchestration', 'Evals', 'MCP', 'Fine-tuning', 'LoRA / QLoRA',
   'Voice AI', 'Cloud Run', 'Vercel', 'Sales development', 'Consulting', 'Pipelining', 'EN · KO · JA',
 ]
 
 // TODO: Walk Safe Alameda and Karp LLM descriptions are placeholders pending real copy.
 // Links: Walk Safe Alameda still needs one.
 export const WORK = [
-  { n: '01', title: 'Walk Safe Alameda', href: '#', desc: 'A tool for finding safer walking routes around Alameda. Full write-up coming soon.', meta: ['Civic tech', 'Maps'] },
-  { n: '02', title: 'Counter LLM', href: 'https://counter-llm.vercel.app/', desc: 'An open-weight LLM fine-tuned to argue against you: a sparring partner for stress-testing pitches and arguments before high-stakes conversations. Live on Vercel.', meta: ['Fine-tuning', 'LoRA'] },
-  { n: '03', title: 'Shogi AI Engine', href: '#', desc: 'A Japanese chess engine in Rust built for the World Computer Shogi Championship: a board-game transformer from scratch, plus replications of the reigning champion and the strongest chess engine\'s architecture.', meta: ['Rust', 'ML'] },
-  { n: '04', title: 'gumiHelp', href: 'https://gumi-site.vercel.app', desc: 'A multimodal iOS companion: AI news, games, calendar, voice conversation, chat, photo understanding and lecture notes. 300+ signups ahead of the App Store release.', meta: ['iOS', 'Multimodal'] },
-  { n: '05', title: 'Karp LLM', href: 'https://karp-llm.vercel.app/', desc: 'A custom fine-tuned language model deployed as a public web application. Full write-up coming soon.', meta: ['Fine-tuning', 'Web'] },
+  { n: '01', title: 'Walk Safe Alameda', image: '/projects/walk-safe.jpg', href: '#', desc: 'A tool for finding safer walking routes around Alameda. Full write-up coming soon.', meta: ['Civic tech', 'Maps'] },
+  { n: '02', title: 'Counter LLM', image: '/projects/counter-llm.jpg', href: 'https://counter-llm.vercel.app/', desc: 'An open-weight LLM fine-tuned to argue against you: a sparring partner for stress-testing pitches and arguments before high-stakes conversations. Live on Vercel.', meta: ['Fine-tuning', 'LoRA'] },
+  { n: '03', title: 'Shogi AI Engine', image: '/projects/shogi-engine.jpg', href: '#', desc: 'A Japanese chess engine in Rust built for the World Computer Shogi Championship: a board-game transformer from scratch, plus replications of the reigning champion and the strongest chess engine\'s architecture.', meta: ['Rust', 'ML'] },
+  { n: '04', title: 'gumiHelp', image: '/projects/gumihelp.jpg', href: 'https://gumi-site.vercel.app', desc: 'A multimodal iOS companion: AI news, games, calendar, voice conversation, chat, photo understanding and lecture notes. 300+ signups ahead of the App Store release.', meta: ['iOS', 'Multimodal'] },
+  { n: '05', title: 'Karp LLM', image: '/projects/karp-llm.jpg', href: 'https://karp-llm.vercel.app/', desc: 'A custom fine-tuned language model deployed as a public web application. Full write-up coming soon.', meta: ['Fine-tuning', 'Web'] },
 ]
 
 export const EXPERIENCE: {

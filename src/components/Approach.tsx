@@ -11,6 +11,7 @@ export function Approach() {
         </div>
         <div className="cols">
           <div className="col" data-reveal style={{ '--i': 0 } as CSSProperties}>
+            <img className="col-img" src="/approach/problem.jpg" alt="" loading="lazy" />
             <span className="label">The problem</span>
             <h3 data-split><Words>Maximizing token usage doesn't create value. It migrates your IP to a third party.</Words></h3>
             <p>
@@ -19,6 +20,7 @@ export function Approach() {
             </p>
           </div>
           <div className="col" data-reveal style={{ '--i': 1 } as CSSProperties}>
+            <img className="col-img" src="/approach/solve.jpg" alt="" loading="lazy" />
             <span className="label">How I solve</span>
             <h3 data-split><Words>Find the gaps. Point the models at your data. Keep the moat.</Words></h3>
             <p>
