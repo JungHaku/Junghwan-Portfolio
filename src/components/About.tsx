@@ -11,11 +11,11 @@ export function About() {
         <div className="about">
           <p className="big" data-fill>
             <Words>
-              I get my dopamine from solving real problems for real people. I care about outcomes, not
-              talk, and I push myself hard to deliver them.{' '}
+              I get my dopamine from solving real problems for real people. I like being close to the
+              people I build for, and I care most about whether the thing actually works for them.{' '}
               <span>
-                I've built a track record of writing efficient code, understanding technology at depth,
-                and turning it into something that works in the <em>real world.</em>
+                I'm always learning how to write cleaner code and how to turn what I learn into
+                something that holds up in the <em>real world.</em>
               </span>
             </Words>
           </p>
