@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { EMAIL } from '../content'
 import { useContourField } from '../hooks/useContourField'
 import { Words } from './SplitText'
+import { Marquee, Strip } from './Strip'
 
 export function Hero() {
   const canvas = useRef<HTMLCanvasElement>(null)
@@ -20,6 +21,10 @@ export function Hero() {
           <a className="btn" href="#projects">Projects</a>
           <a className="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
+      </div>
+      <div className="hero-foot">
+        <Strip />
+        <Marquee />
       </div>
     </header>
   )

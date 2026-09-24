@@ -1,4 +1,3 @@
-import { FACTS } from '../content'
 import { Words } from './SplitText'
 
 export function About() {
@@ -12,22 +11,14 @@ export function About() {
         <div className="about">
           <p className="big" data-fill>
             <Words>
-              Cognitive science student at UC Berkeley. Before engineering, I sold: cold calls, cold
-              email, consulting.{' '}
+              I get my dopamine from solving real problems for real people. I care about outcomes, not
+              talk, and I push myself hard to deliver them.{' '}
               <span>
-                That taught me the hardest part of software is the last mile to the customer. It's the
-                part I want to own.
+                I've built a track record of writing efficient code, understanding technology at depth,
+                and turning it into something that works in the <em>real world.</em>
               </span>
             </Words>
           </p>
-          <div className="facts" data-reveal>
-            {FACTS.map((f) => (
-              <div key={f.label}>
-                <span className="label">{f.label}</span>
-                <span>{f.value}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

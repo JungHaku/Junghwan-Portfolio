@@ -16,8 +16,9 @@ export const STRIP = [
 ]
 
 export const MARQUEE = [
-  'Agent orchestration', 'Evals', 'MCP', 'Fine-tuning', 'LoRA / QLoRA',
-  'Voice AI', 'Cloud Run', 'Vercel', 'Sales development', 'Consulting', 'Pipelining', 'EN · KO · JA',
+  'Human in the loop', 'Data integration', 'Operational workflows', 'Automation',
+  'Human-centric', 'Agent-powered decisions', 'Code for business', 'Digitizing business',
+  'End-to-end', 'Rapid prototyping', 'Efficient iteration', 'Client-facing',
 ]
 
 // TODO: Walk Safe Alameda and Karp LLM descriptions are placeholders pending real copy.
@@ -31,11 +32,11 @@ export const WORK = [
 ]
 
 export const EXPERIENCE: {
-  n: string; org: string; role: string; dates: string[]; desc: string; logo?: string; logoH?: number
+  n: string; org: string; role: string; dates: string[]; desc: string; logo?: string; logoH?: number; href?: string
 }[] = [
-  { n: '01', org: 'Toggle Holdings', logo: '/toggle-logo.png', role: 'Software Engineer Intern', dates: ['May – Aug', '2026'], desc: 'Built and deployed a multi-agent compliance system for talent acquisition, saving ~15 hours a week. Set up internal MCPs and multi-agent orchestration for the agent platform, and shipped an agent that listens to live sales calls and fills in the spreadsheets, saving ~10 more.' },
-  { n: '02', org: 'Alice Calls', role: 'Founding Software Engineer', dates: ['Apr – Aug', '2026'], desc: 'Shipped a 24/7 AI voice receptionist (Retell AI, ElevenLabs, Cal.com) on live customer phone lines: intent handling, booking, CRM sync and bilingual Spanish/English. Closed paying customers through 200+ cold calls and owned product, deployment and sales end to end.' },
-  { n: '03', org: 'Nurturance', logo: '/nurturance-logo.png', logoH: 34, role: 'SDR', dates: ['Aug – Sep', '2026'], desc: 'Cold-called 10,000+ prospects and booked ~100 deals across three client pipelines, B2B and B2C. Discovered ICPs, wrote the pitches, and delivered them.' },
+  { n: '01', org: 'Toggle Holdings', href: 'https://toggle.co.jp/', logo: '/toggle-logo.png', role: 'Software Engineer Intern', dates: ['May – Aug', '2026'], desc: 'Built and deployed a multi-agent compliance system for talent acquisition, saving ~15 hours a week. Set up internal MCPs and multi-agent orchestration for the agent platform, and shipped an agent that listens to live sales calls and fills in the spreadsheets, saving ~10 more.' },
+  { n: '02', org: 'Alice Calls', href: 'https://alicecalls.org', role: 'Founding Software Engineer', dates: ['Apr – Aug', '2026'], desc: 'Shipped a 24/7 AI voice receptionist (Retell AI, ElevenLabs, Cal.com) on live customer phone lines: intent handling, booking, CRM sync and bilingual Spanish/English. Closed paying customers through 200+ cold calls and owned product, deployment and sales end to end.' },
+  { n: '03', org: 'Nurturance', href: 'https://www.nurturance.us/', logo: '/nurturance-logo.png', logoH: 34, role: 'SDR', dates: ['Aug – Sep', '2026'], desc: 'Cold-called 10,000+ prospects and booked ~100 deals across three client pipelines, B2B and B2C. Discovered ICPs, wrote the pitches, and delivered them.' },
   { n: '04', org: 'UC Berkeley Shogi Club', role: 'Co-President & Co-Founder', dates: ['2026 –', 'Present'], desc: 'Co-founded Berkeley\'s first shogi club and registered it as a student organization. Lead the officer team and direct the club\'s engine project.' },
 ]
 
@@ -43,15 +44,6 @@ export const PRINCIPLES = [
   { n: 'I', title: 'The metric comes first.', desc: "If we can't name the number that should move, we're not ready to write code." },
   { n: 'II', title: 'Sit with the user.', desc: "The edge cases live in someone's head, not in the spec. I go find them." },
   { n: 'III', title: 'Own it end to end.', desc: 'Discovery, model, infrastructure, rollout. One person accountable for the outcome.' },
-]
-
-export const FACTS = [
-  { label: 'Based in', value: 'Berkeley, CA' },
-  { label: 'Graduating', value: 'December 2026' },
-  { label: 'Languages', value: 'English · 한국어 · 日本語 (N2)' },
-  { label: 'Stack', value: 'Python, TypeScript, Rust, PyTorch, MCP, Cloud Run' },
-  { label: 'Achievement', value: '3rd place, SVCC CTF Hackathon 2025' },
-  { label: 'Off hours', value: 'Shogi, MMA' },
 ]
 
 export const SOCIAL = [
