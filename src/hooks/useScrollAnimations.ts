@@ -21,6 +21,7 @@ export function useScrollAnimations() {
       document.querySelectorAll('.hero [data-split]').forEach((el) => el.classList.add('in'))
     })
 
+    const nav = document.querySelector<HTMLElement>('nav')
     const hero = document.querySelector<HTMLElement>('.hero')
     const bar = document.getElementById('progress')
     const fills = [...document.querySelectorAll<HTMLElement>('[data-fill]')].map((el) => ({
@@ -38,6 +39,7 @@ export function useScrollAnimations() {
         const vh = window.innerHeight
         const doc = document.documentElement.scrollHeight - vh
         if (bar) bar.style.transform = `scaleX(${doc > 0 ? y / doc : 0})`
+        if (nav) nav.classList.toggle('scrolled', y > 120)
         if (hero) hero.style.setProperty('--p', Math.min(1, y / hero.offsetHeight).toFixed(3))
         fills.forEach(({ el, words }) => {
           const r = el.getBoundingClientRect()
