@@ -21,9 +21,8 @@ export const MARQUEE = [
   'End-to-end', 'Rapid prototyping', 'Efficient iteration', 'Client-facing',
 ]
 
-// TODO: Walk Safe Berkeley description is a placeholder pending real copy.
 export const WORK = [
-  { n: '01', title: 'Walk Safe Berkeley', image: '/projects/walk-safe.jpg', href: 'https://safewalkberkeley.vercel.app', desc: 'A tool for finding safer walking routes around Berkeley. Live on Vercel.', meta: ['Civic tech', 'Maps'] },
+  { n: '01', title: 'Walk Safe Berkeley', image: '/projects/walk-safe.jpg', href: 'https://safewalkberkeley.vercel.app', desc: 'A walking map that routes you the safest way across Berkeley, not the fastest: every street is scored on crash records, high-injury corridors, lighting, crossings and terrain, and an LLM reads local news so routes steer around recent incidents. Installable, works offline.', meta: ['Civic tech', 'Maps'] },
   { n: '02', title: 'Counter LLM', image: '/projects/counter-llm.jpg', href: 'https://counter-llm.vercel.app/', desc: 'An open-weight LLM fine-tuned to argue against you: a sparring partner for stress-testing pitches and arguments before high-stakes conversations. Live on Vercel.', meta: ['Fine-tuning', 'LoRA'] },
   { n: '03', title: 'Shogi AI Engine', image: '/projects/shogi-engine.jpg', href: '#', desc: 'A Japanese chess engine in Rust built for the World Computer Shogi Championship: a board-game transformer from scratch, plus replications of the reigning champion and the strongest chess engine\'s architecture.', meta: ['Rust', 'ML'] },
   { n: '04', title: 'gumiHelp', image: '/projects/gumihelp.jpg', href: 'https://gumi-site.vercel.app', desc: 'A multimodal iOS companion: AI news, games, calendar, voice conversation, chat, photo understanding and lecture notes. 300+ signups ahead of the App Store release.', meta: ['iOS', 'Multimodal'] },
