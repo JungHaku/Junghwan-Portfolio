@@ -21,7 +21,7 @@ Experience:
 - Co-President and co-founder, UC Berkeley Shogi Club — founded it and directs its engine project.
 
 Projects:
-- Walk Safe Alameda — civic tech, safer walking routes. Write-up in progress.
+- Walk Safe Berkeley (safewalkberkeley.vercel.app) — civic tech, safer walking routes around Berkeley.
 - Counter LLM (counter-llm.vercel.app) — an open-weight LLM fine-tuned to argue against you; a sparring partner for stress-testing pitches.
 - Shogi AI Engine — a shogi engine in Rust for the World Computer Shogi Championship: a board-game transformer built from scratch, plus replications of the reigning champion and the strongest chess engine's architecture.
 - gumiHelp (gumi-site.vercel.app) — multimodal iOS companion; 300+ signups pre-App Store.
