@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "junghwan-portfolio.vercel.app" }],
+      "destination": "https://junghwan.intmaxx.com/:path*",
+      "permanent": true
+    }
+  ]
+}
