@@ -25,7 +25,6 @@ Projects:
 - Counter LLM (counter-llm.vercel.app) — an open-weight LLM fine-tuned to argue against you; a sparring partner for stress-testing pitches.
 - Shogi AI Engine — a shogi engine in Rust for the World Computer Shogi Championship: a board-game transformer built from scratch, plus replications of the reigning champion and the strongest chess engine's architecture.
 - gumiHelp (gumi-site.vercel.app) — multimodal iOS companion; 300+ signups pre-App Store.
-- Karp LLM (karp-llm.vercel.app) — a fine-tuned model deployed as a public web app.
 
 Stack: Python, TypeScript, Rust, React, FastAPI, PostgreSQL, Supabase, PyTorch, Hugging Face, LoRA/QLoRA, MCP and multi-agent systems, voice agents, Google Cloud Run, Vercel.
 
