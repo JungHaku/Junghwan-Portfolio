@@ -1,4 +1,6 @@
 export const EMAIL = 'junghwanbaik@berkeley.edu'
+export const PHONE = '(510) 604-9014'
+export const PHONE_HREF = 'tel:+15106049014'
 
 export const NAV_LINKS = [
   { href: '#approach', label: 'Approach' },
@@ -16,10 +18,35 @@ export const STRIP = [
 ]
 
 export const MARQUEE = [
-  'Human in the loop', 'Data integration', 'Operational workflows', 'Automation',
-  'Human-centric', 'Agent-powered decisions', 'Code for business', 'Digitizing business',
-  'End-to-end', 'Rapid prototyping', 'Efficient iteration', 'Client-facing',
+  'Software for real problems', 'Client-facing', 'Data integration', 'Operational workflows', 'Automation',
+  'Sovereign AI', 'Autonomy', 'Visibility', 'Efficient iteration', 'Rapid prototyping',
 ]
+
+export const FEATURE = {
+  n: '00',
+  title: 'IAP',
+  subtitle: 'Intmaxx Agents Platform',
+  tagline: 'Every project. Every agent. One board.',
+  youtubeId: 'YrwG8LhTl58',
+  youtube: 'https://www.youtube.com/watch?v=YrwG8LhTl58',
+  download: 'https://github.com/JungHaku/iap-releases',
+  preview: '/projects/iap-preview.mp4',
+  poster: '/projects/iap-poster.jpg',
+  duration: '4:40',
+  meta: ['Agentic dev environment', 'macOS', 'Claude Agent SDK'],
+  lead: 'A native Mac app that replaces the editor-and-terminal setup with an infinite canvas. Every Claude agent is a card you drag around, every project gets its own, and you work by pointing an agent at a folder and asking in plain language.',
+  body: [
+    'Each card is a full Claude Code session with your own tools, MCP servers, skills and hooks, its own model and its own permission mode. Viewer cards open on the board and flash edits as they land on disk, browser cards are real Chromium, and IAP Assist lays the board out for you. Voice runs on-device, and it ships no credentials: bring your own Claude. Free for Apple Silicon. This site was built inside it.',
+  ],
+  features: [
+    'One agent card per project',
+    'Live viewers that flash edits',
+    'Browser cards: real Chromium',
+    'Per-card model and permissions',
+    'Subagents as linked boxes',
+    'On-device voice with Whisper',
+  ],
+}
 
 export const WORK = [
   { n: '01', title: 'Walk Safe Berkeley', image: '/projects/walk-safe.jpg', href: 'https://safewalkberkeley.vercel.app', desc: 'A walking map that routes you the safest way across Berkeley, not the fastest: every street is scored on crash records, high-injury corridors, lighting, crossings and terrain, and an LLM reads local news so routes steer around recent incidents. Installable, works offline.', meta: ['Civic tech', 'Maps'] },

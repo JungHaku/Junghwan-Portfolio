@@ -1,4 +1,4 @@
-import { EMAIL, SOCIAL } from '../content'
+import { EMAIL, PHONE, PHONE_HREF, SOCIAL } from '../content'
 import { Chars } from './SplitText'
 
 export function Contact() {
@@ -10,6 +10,7 @@ export function Contact() {
           <Chars text={EMAIL} />
         </a>
         <div className="sub">
+          <a href={PHONE_HREF}>{PHONE}</a>
           {SOCIAL.map((s) => (
             <a key={s.href} href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
           ))}

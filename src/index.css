@@ -98,7 +98,7 @@ h2 { font-family: var(--tight); font-weight: 600; font-size: clamp(34px, 4.2vw, 
 .rail-nav button:disabled { opacity: .3; cursor: default; }
 .rail-nav button:disabled:hover { background: transparent; color: inherit; border-color: var(--rule-l); }
 
-.rail { max-width: 1240px; margin: 0 auto; display: flex; gap: 24px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scrollbar-width: none; padding: 4px 40px 8px; scroll-padding-left: 40px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 96px), transparent calc(100% - 8px)); mask-image: linear-gradient(to right, #000 calc(100% - 96px), transparent calc(100% - 8px)); }
+.rail { max-width: 1240px; margin: 0 auto; display: flex; align-items: flex-start; gap: 24px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scrollbar-width: none; padding: 4px 40px 8px; scroll-padding-left: 40px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 96px), transparent calc(100% - 8px)); mask-image: linear-gradient(to right, #000 calc(100% - 96px), transparent calc(100% - 8px)); }
 .rail.at-end { -webkit-mask-image: none; mask-image: none; }
 .rail::-webkit-scrollbar { display: none; }
 .rail::after { content: ""; flex: 0 0 1px; }
@@ -164,6 +164,40 @@ footer .wrap { display: flex; justify-content: space-between; height: 72px; alig
   .pr { padding-right: 0; }
   .pr + .pr { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.25); margin-top: 40px; padding-top: 40px; }
   .pr .n { margin-bottom: 24px; }
+}
+
+/* FEATURE PROJECT (first card in the rail; nearly the rail's width so the next card peeks) */
+.feature { flex: 0 0 auto; width: calc(min(100vw, 1240px) - 136px); scroll-snap-align: start; background: var(--black); color: var(--white); display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); overflow: hidden; }
+.feature-media { display: flex; flex-direction: column; gap: 22px; padding: 22px; border-right: 1px solid var(--rule-d); }
+.feature-video { position: relative; aspect-ratio: 16 / 9; background: #0f1115; overflow: hidden; }
+.feature-video video, .feature-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
+.feature-play { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 12px; height: 44px; padding: 0 18px 0 14px; background: var(--white); color: var(--black); border: 0; font-family: var(--sans); font-size: 14px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 30px rgba(0,0,0,.4); transition: background .2s; }
+.feature-play:hover { background: var(--blue-text); }
+.feature-play-icon { font-size: 11px; }
+.feature-play-dur { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; opacity: .55; }
+.feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px 20px; padding: 0 4px; }
+.feature-list li { position: relative; padding-left: 14px; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+.feature-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 1px; background: var(--blue-text); }
+.feature-body { display: flex; flex-direction: column; gap: 14px; padding: 26px 28px 28px; }
+.feature-body .label { color: var(--blue-text); }
+.feature-title { font-family: var(--tight); font-weight: 700; font-size: clamp(40px, 4vw, 56px); line-height: .94; letter-spacing: -.04em; margin-top: 2px; }
+.feature-title span { display: block; font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; color: var(--ink-2); margin-top: 8px; }
+.feature-tagline { font-family: var(--tight); font-weight: 600; font-size: 19px; letter-spacing: -.02em; color: var(--blue-text); }
+.feature-lead { font-size: 15.5px; line-height: 1.55; color: var(--white); }
+.feature-body p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.feature-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 10px; }
+.feature-links .btn { height: 44px; padding: 0 20px; font-size: 13.5px; }
+@media (max-width: 1100px) {
+  .feature { grid-template-columns: 1fr; }
+  .feature-media { border-right: 0; border-bottom: 1px solid var(--rule-d); }
+  .feature-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .feature { width: calc(100vw - 120px); }
+  .feature-media { padding: 14px; gap: 16px; }
+  .feature-body { padding: 20px 18px 22px; gap: 12px; }
+  .feature-list { grid-template-columns: 1fr; gap: 8px; }
+  .feature-tagline { font-size: 17px; }
 }
 
 /* ============ SCROLL ANIMATIONS ============
@@ -287,4 +321,45 @@ footer .wrap { display: flex; justify-content: space-between; height: 72px; alig
 @media (prefers-reduced-motion: reduce) {
   .chat-launcher, .chat-panel { transition: opacity .2s ease; transform: none !important; }
   .chat-msg.typing i { animation: none; }
+}
+
+/* ============ VOICE ORB (hero) ============ */
+/* A ball of light rather than a shaded sphere: a blurred halo, a slowly turning
+   sheen, and a bright centre. --v (0..1) is the live audio level set from JS. */
+.voice { display: flex; align-items: center; gap: 26px; margin-top: 56px; max-width: 520px; }
+.voice-orb { position: relative; flex-shrink: 0; width: 76px; height: 76px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; --v: 0; --spin: 14s; }
+.voice-glow { position: absolute; inset: -45%; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,255,255,.35) 28%, rgba(255,255,255,0) 62%); filter: blur(12px); opacity: .5; transform: scale(calc(1 + var(--v) * .5)); transition: opacity .4s; animation: voice-halo 5s ease-in-out infinite; }
+.voice-core { position: absolute; inset: 0; border-radius: 50%; transform: scale(calc(1 + var(--v) * .18)); transition: transform .08s linear; }
+/* soft rays that turn around the centre; masked so they melt into the bloom */
+.voice-core::before { content: ""; position: absolute; inset: -18%; border-radius: 50%; background: conic-gradient(from 0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.9) 8%, rgba(255,255,255,0) 22%, rgba(255,255,255,.7) 38%, rgba(255,255,255,0) 50%, rgba(255,255,255,.85) 64%, rgba(255,255,255,0) 78%, rgba(255,255,255,.6) 90%, rgba(255,255,255,0) 100%); -webkit-mask: radial-gradient(circle, #000 0%, rgba(0,0,0,.9) 22%, rgba(0,0,0,0) 62%); mask: radial-gradient(circle, #000 0%, rgba(0,0,0,.9) 22%, rgba(0,0,0,0) 62%); filter: blur(5px); animation: voice-spin var(--spin) linear infinite; }
+/* the hot centre */
+.voice-core::after { content: ""; position: absolute; inset: 27%; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #fff 35%, rgba(255,255,255,.7) 60%, rgba(255,255,255,0) 100%); box-shadow: 0 0 18px 6px rgba(255,255,255,.75), 0 0 48px 14px rgba(255,255,255,.3); animation: voice-flicker 3.4s ease-in-out infinite; }
+.voice-ring { position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.55); opacity: 0; transform: scale(.9); transition: opacity .3s, transform .3s; }
+.voice-orb:hover .voice-glow { opacity: .85; }
+.voice.connecting { --spin: 4s; }
+.voice.connecting .voice-ring { opacity: 1; transform: scale(1); animation: voice-spin 1.1s linear infinite; border-color: rgba(255,255,255,.18); border-top-color: var(--white); }
+.voice.listening { --spin: 8s; }
+.voice.listening .voice-ring { opacity: 1; transform: scale(1); animation: voice-pulse 1.8s ease-out infinite; }
+.voice.speaking { --spin: 3s; }
+.voice.speaking .voice-glow { opacity: calc(.65 + var(--v) * .35); animation: none; transition: transform .08s linear; }
+.voice.speaking .voice-ring { opacity: calc(.3 + var(--v) * .6); transform: scale(calc(1.02 + var(--v) * .35)); transition: transform .08s linear, opacity .08s linear; }
+.voice-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.voice-text .label { color: var(--blue-text); }
+.voice-hint { font-size: 14px; color: var(--ink-2); }
+.voice-hint i { font-style: normal; color: var(--white); }
+.voice-end { background: none; border: 0; padding: 0; color: var(--white); font: inherit; cursor: pointer; border-bottom: 1px solid var(--rule-d); transition: border-color .2s; }
+.voice-end:hover { border-color: var(--white); }
+.voice-error { font-size: 13px; color: #E88; }
+.voice-caption { font-size: 14px; line-height: 1.5; color: var(--white); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@keyframes voice-halo { 0%, 100% { transform: scale(1); opacity: .45; } 50% { transform: scale(1.2); opacity: .7; } }
+@keyframes voice-flicker { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.14); } 70% { transform: scale(.94); } }
+@keyframes voice-pulse { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes voice-spin { to { transform: rotate(360deg); } }
+@media (max-width: 900px) {
+  .voice { margin-top: 40px; gap: 20px; }
+  .voice-orb { width: 64px; height: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-glow, .voice-core::before, .voice-core::after, .voice.listening .voice-ring { animation: none; }
+  .voice-glow, .voice-core, .voice.speaking .voice-ring { transition: none; transform: none !important; }
 }

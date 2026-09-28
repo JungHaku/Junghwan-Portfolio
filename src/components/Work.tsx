@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
-import { WORK } from '../content'
+import { FEATURE, WORK } from '../content'
 import { Words } from './SplitText'
 
 export function Work() {
@@ -20,12 +20,21 @@ export function Work() {
     return () => window.removeEventListener('resize', sync)
   }, [sync])
 
+  // Step to the next/previous card's snap point rather than by a fixed width,
+  // since the feature card is much wider than the rest.
   const nudge = useCallback((dir: number) => {
     const el = rail.current
     if (!el) return
-    const card = el.querySelector<HTMLElement>('.pcard')
-    const step = card ? card.offsetWidth + 24 : el.clientWidth * 0.8
-    el.scrollBy({ left: dir * step, behavior: 'smooth' })
+    const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0
+    const left = el.getBoundingClientRect().left
+    const starts = Array.from(el.children)
+      .filter((c): c is HTMLElement => c instanceof HTMLElement && c.matches('.pcard, .feature'))
+      .map((c) => c.getBoundingClientRect().left - left + el.scrollLeft - pad)
+    const here = el.scrollLeft
+    const target = dir > 0
+      ? starts.find((x) => x > here + 8)
+      : [...starts].reverse().find((x) => x < here - 8)
+    el.scrollTo({ left: target ?? (dir > 0 ? el.scrollWidth : 0), behavior: 'smooth' })
   }, [])
 
   return (
@@ -43,6 +52,7 @@ export function Work() {
         </div>
       </div>
       <div className={`rail${atEnd ? ' at-end' : ''}`} ref={rail} onScroll={sync}>
+        <Feature />
         {WORK.map((w, i) => {
           const external = w.href.startsWith('http')
           return (
@@ -72,5 +82,60 @@ export function Work() {
         })}
       </div>
     </section>
+  )
+}
+
+function Feature() {
+  const f = FEATURE
+  return (
+    <article className="feature" data-reveal aria-labelledby="feature-title">
+      <div className="feature-media">
+        <FeatureVideo />
+        <ul className="feature-list">
+          {f.features.map((x) => <li key={x}>{x}</li>)}
+        </ul>
+      </div>
+      <div className="feature-body">
+        <span className="label">{f.n} · {f.meta.join(' · ')}</span>
+        <h3 className="feature-title" id="feature-title">
+          {f.title} <span>{f.subtitle}</span>
+        </h3>
+        <p className="feature-tagline">{f.tagline}</p>
+        <p className="feature-lead">{f.lead}</p>
+        {f.body.map((p, i) => <p key={i}>{p}</p>)}
+        <div className="feature-links">
+          <a className="btn" href={f.download} target="_blank" rel="noreferrer">Download for Mac ↗</a>
+          <a className="btn ghost" href={f.youtube} target="_blank" rel="noreferrer">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+// Muted preview loop until you press play, then the full demo from YouTube.
+function FeatureVideo() {
+  const [playing, setPlaying] = useState(false)
+  const f = FEATURE
+  if (playing) {
+    return (
+      <div className="feature-video">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${f.youtubeId}?autoplay=1&rel=0`}
+          title={`${f.title} — ${f.subtitle} demo`}
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowFullScreen
+        />
+      </div>
+    )
+  }
+  return (
+    <div className="feature-video">
+      <video src={f.preview} poster={f.poster} muted autoPlay loop playsInline preload="metadata" aria-hidden="true" />
+      <button type="button" className="feature-play" onClick={() => setPlaying(true)} aria-label={`Play the ${f.title} demo, ${f.duration}`}>
+        <span className="feature-play-icon" aria-hidden="true">▶</span>
+        <span>Watch the demo</span>
+        <span className="feature-play-dur">{f.duration}</span>
+      </button>
+    </div>
   )
 }

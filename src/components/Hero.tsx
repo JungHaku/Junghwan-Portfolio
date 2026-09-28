@@ -1,8 +1,12 @@
-import { useRef } from 'react'
+import { Suspense, lazy, useRef } from 'react'
 import { EMAIL } from '../content'
 import { useContourField } from '../hooks/useContourField'
 import { Words } from './SplitText'
 import { Marquee, Strip } from './Strip'
+import { VoiceShell } from './VoiceShell'
+
+// The ElevenLabs SDK is heavy; keep it out of the main bundle.
+const VoiceOrb = lazy(() => import('./VoiceOrb'))
 
 export function Hero() {
   const canvas = useRef<HTMLCanvasElement>(null)
@@ -21,6 +25,9 @@ export function Hero() {
           <a className="btn" href="#projects">Projects</a>
           <a className="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
+        <Suspense fallback={<VoiceShell state="idle" label="Talk to Gumi" />}>
+          <VoiceOrb />
+        </Suspense>
       </div>
       <div className="hero-foot">
         <Strip />
