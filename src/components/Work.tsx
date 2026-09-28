@@ -104,8 +104,7 @@ function Feature() {
         <p className="feature-lead">{f.lead}</p>
         {f.body.map((p, i) => <p key={i}>{p}</p>)}
         <div className="feature-links">
-          <a className="btn" href={f.download} target="_blank" rel="noreferrer">Download for Mac ↗</a>
-          <a className="btn ghost" href={f.youtube} target="_blank" rel="noreferrer">Watch on YouTube ↗</a>
+          <a className="btn" href={f.youtube} target="_blank" rel="noreferrer">Watch on YouTube ↗</a>
         </div>
       </div>
     </article>

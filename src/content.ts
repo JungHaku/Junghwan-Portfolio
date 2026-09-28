@@ -29,11 +29,10 @@ export const FEATURE = {
   tagline: 'Every project. Every agent. One board.',
   youtubeId: 'YrwG8LhTl58',
   youtube: 'https://www.youtube.com/watch?v=YrwG8LhTl58',
-  download: 'https://github.com/JungHaku/iap-releases',
   preview: '/projects/iap-preview.mp4',
   poster: '/projects/iap-poster.jpg',
   duration: '4:40',
-  meta: ['Agentic dev environment', 'macOS', 'Claude Agent SDK'],
+  meta: ['Agentic dev environment', 'Claude Agent SDK'],
   lead: 'A native Mac app that replaces the editor-and-terminal setup with an infinite canvas. Every Claude agent is a card you drag around, every project gets its own, and you work by pointing an agent at a folder and asking in plain language.',
   body: [
     'Each card is a full Claude Code session with your own tools, MCP servers, skills and hooks, its own model and its own permission mode. Viewer cards open on the board and flash edits as they land on disk, browser cards are real Chromium, and IAP Assist lays the board out for you. Voice runs on-device, and it ships no credentials: bring your own Claude. Free for Apple Silicon. This site was built inside it.',
