@@ -5,7 +5,7 @@ export function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="wrap">
-        <span className="label">06 — Contact</span>
+        <span className="label">06 — Let's talk</span>
         <a className="mail" href={`mailto:${EMAIL}`} data-chars aria-label={EMAIL}>
           <Chars text={EMAIL} />
         </a>

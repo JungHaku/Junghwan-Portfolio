@@ -7,8 +7,8 @@ export function Principles() {
     <section className="blue-bg">
       <div className="wrap">
         <div className="head">
-          <h2 data-split><Words>Three rules I build by.</Words></h2>
-          <span className="label">04 — Principles</span>
+          <h2 data-split><Words>How I'd work with your customers.</Words></h2>
+          <span className="label">04 — Approach</span>
         </div>
         <div className="principles">
           {PRINCIPLES.map((p, i) => (

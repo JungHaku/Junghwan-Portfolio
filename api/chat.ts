@@ -12,7 +12,7 @@ Who he is:
 - Languages: English (native), Korean (native), Japanese (JLPT N2).
 - Reachable at junghwanbaik@berkeley.edu or by phone at (510) 604-9014. LinkedIn: /in/junghwan-baik. GitHub: JungHaku.
 
-How he frames his work: intelligence is cheap, deployment is the hard part. Maximizing token usage doesn't create value for a business, and it migrates your IP to a third party. He finds the gaps where LLMs and ML models can be applied to data a company already owns, inside their own stack. Your data is your moat; your users are your moat — not the code, not the model.
+What he is looking for: this version of the site is his application for a Forward Deployed Engineer role at ElevenLabs. His pitch is that he has already shipped voice agents on live customer phone lines (Alice Calls used ElevenLabs voices alongside Retell AI and Cal.com), that the voice orb on this site is an ElevenLabs agent, and that he is comfortable owning discovery, build, deployment and the customer relationship end to end. Do not claim he has worked at ElevenLabs or been in contact with them.
 
 Experience:
 - Toggle Holdings, Software Engineer Intern (May–Aug 2026): multi-agent compliance system for talent acquisition (~15 hrs/week saved); internal MCPs and multi-agent orchestration; an agent that listens to live sales calls and fills spreadsheets (~10 more hrs/week).

@@ -3,7 +3,7 @@ export const PHONE = '(510) 604-9014'
 export const PHONE_HREF = 'tel:+15106049014'
 
 export const NAV_LINKS = [
-  { href: '#approach', label: 'Approach' },
+  { href: '#approach', label: 'Why me' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
@@ -11,15 +11,21 @@ export const NAV_LINKS = [
 ]
 
 export const STRIP = [
-  { label: 'Education', value: 'UC Berkeley, Cognitive Science' },
+  { label: 'Applying for', value: 'Forward Deployed Engineer' },
   { label: 'Available', value: 'December 2026' },
   { label: 'Languages', value: 'English, Korean, Japanese' },
-  { label: 'Focus', value: 'Software for clients, built with clients' },
+  { label: 'Education', value: 'UC Berkeley, Cognitive Science' },
 ]
 
 export const MARQUEE = [
-  'Software for real problems', 'Client-facing', 'Data integration', 'Operational workflows', 'Automation',
-  'Sovereign AI', 'Autonomy', 'Visibility', 'Efficient iteration', 'Rapid prototyping',
+  'Voice agents', 'Live phone lines', 'Conversational AI', 'Customer-facing', 'Integrations',
+  'Bilingual EN / ES / KO / JA', 'Prototype to production', 'Discovery to rollout', 'Automation',
+]
+
+export const PROOF = [
+  { n: '01', label: 'In production', title: 'Alice Calls', stack: ['ElevenLabs', 'Retell AI', 'Cal.com'], desc: 'A 24/7 AI voice receptionist on live customer phone lines: intent handling, booking, CRM sync and bilingual Spanish/English. Paying customers, closed through 200+ cold calls. I owned product, deployment and sales.' },
+  { n: '02', label: 'Try it now', title: 'Gumi, on this page', stack: ['ElevenLabs Agents', 'Custom voice'], desc: 'The orb in the hero is an ElevenLabs agent that answers questions about me out loud. Fresh project context is pushed to it when the call connects, so it never goes stale.' },
+  { n: '03', label: 'Internal agents', title: 'Toggle Holdings', stack: ['Multi-agent', 'MCP'], desc: 'An agent that listens to live sales calls and fills in the spreadsheets, saving about 10 hours a week. Alongside it, a multi-agent compliance system for talent acquisition that saves about 15.' },
 ]
 
 export const FEATURE = {
@@ -64,7 +70,7 @@ export const EXPERIENCE: {
 ]
 
 export const PRINCIPLES = [
-  { n: 'I', title: 'The metric comes first.', desc: "If we can't name the number that should move, we're not ready to write code." },
+  { n: 'I', title: 'Name the number.', desc: "Calls resolved, bookings made, hours saved. If we can't say which one should move, the agent isn't ready to ship." },
   { n: 'II', title: 'Sit with the user.', desc: "The edge cases live in someone's head, not in the spec. I go find them." },
   { n: 'III', title: 'Own it end to end.', desc: 'Discovery, model, infrastructure, rollout. One person accountable for the outcome.' },
 ]

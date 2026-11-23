@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { PROOF } from '../content'
 import { Words } from './SplitText'
 
 export function Approach() {
@@ -6,30 +7,20 @@ export function Approach() {
     <section className="light" id="approach">
       <div className="wrap">
         <div className="head">
-          <h2 data-split><Words>Code is power, data is <em>ammo</em>.</Words></h2>
-          <span className="label">01 — Approach</span>
+          <h2 data-split><Words>I've already built on <em>your stack.</em></Words></h2>
+          <span className="label">01 — Why me</span>
         </div>
-        <div className="cols">
-          <div className="col" data-reveal style={{ '--i': 0 } as CSSProperties}>
-            <img className="col-img" src="/approach/problem.jpg" alt="" loading="lazy" />
-            <span className="label">The problem</span>
-            <h3 data-split><Words>Maximizing token usage doesn't create value. It migrates your IP to a third party.</Words></h3>
-            <p>
-              The spend climbs, the vendor learns your domain, and the numbers your business
-              actually tracks stay flat. You end up renting capability you could have owned.
-            </p>
-          </div>
-          <div className="col" data-reveal style={{ '--i': 1 } as CSSProperties}>
-            <img className="col-img" src="/approach/solve.jpg" alt="" loading="lazy" />
-            <span className="label">How I solve</span>
-            <h3 data-split><Words>Find the gaps. Point the models at your data. Keep the moat.</Words></h3>
-            <p>
-              LLMs and ML models are a powerful raw resource, but the value is in where they meet
-              your business. I find the gaps where they can be applied to your own data, inside
-              your own stack. Your data is your moat. Your users are your moat. Not the code, not
-              the model.
-            </p>
-          </div>
+        <div className="proof">
+          {PROOF.map((p, i) => (
+            <article key={p.n} className="proof-card" data-reveal style={{ '--i': i } as CSSProperties}>
+              <span className="label">{p.label}</span>
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+              <ul>
+                {p.stack.map((s) => <li key={s}>{s}</li>)}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
     </section>

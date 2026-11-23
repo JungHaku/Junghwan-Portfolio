@@ -15,7 +15,8 @@ export function About() {
               people I build for, and I care most about whether the thing actually works for them.{' '}
               <span>
                 I'm always learning how to make cleaner software and how to turn what I learn into
-                something that holds up in the <em>real world.</em>
+                something that holds up in the <em>real world.</em> I've used ElevenLabs voices and
+                agents in production, and I'd like to help the people who build on them.
               </span>
             </Words>
           </p>
